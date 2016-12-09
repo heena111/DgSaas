@@ -1,0 +1,8 @@
+<html>
+   <body>
+      <h2>Hi your demo instance is ready for use</h2>
+	  <b>URL: </b><link>{{url}}</link><br>
+	  <b>Username: </b>{{username}}<br>
+	  <b>Password: </b>{{password}}<br>
+   </body>
+</html>

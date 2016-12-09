@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="builddgCommon" name="dgCommon">
+    <property environment="env"/>
+    <dirname property="dgCommon.location" file="${ant.file}" />
+    <property name="DgIngestCommon.location" value="../DgIngestCommon"/>
+    <property name="HDFSAgent.location" value="../HDFSAgent"/>
+    <property name="HiveAgent.location" value="../HiveAgent"/>
+    <property name="dgController.location" value="../dgController"/>
+    <property name="dgFilesAgent.location" value="../dgFilesAgent"/>
+    <property name="dgUI.location" value="../dgUI"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
+    <path id="Persisted container [melibrary.com.genuitec.eclipse.ws.xfire.MYECLIPSE_JAXWS_API for project [dgCommon]].libraryclasspath"/>
+    <path id="Persisted container [melibrary.com.genuitec.eclipse.ws.xfire.MYECLIPSE_METRO_IMPL for project [dgCommon]].libraryclasspath"/>
+    <path id="dgCommon.classpath">
+        <pathelement location="bin"/>
+        <path refid="Persisted container [melibrary.com.genuitec.eclipse.ws.xfire.MYECLIPSE_JAXWS_API for project [dgCommon]].libraryclasspath"/>
+        <path refid="Persisted container [melibrary.com.genuitec.eclipse.ws.xfire.MYECLIPSE_METRO_IMPL for project [dgCommon]].libraryclasspath"/>
+        <pathelement location="lib/log4j-1.2.15.jar"/>
+        <pathelement location="lib/jsr311-api-1.0.jar"/>
+        <pathelement location="lib/gson-2.2.2.jar"/>
+        <pathelement location="lib/hibernate-validator-4.1.0.Final.jar"/>
+        <pathelement location="lib/javax.validation-1.0.0.GA.jar"/>
+    </path>
+    <target name="initdgCommon">
+        <mkdir dir="classes"/>
+        <copy includeemptydirs="false" todir="classes">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="cleandgCommon">
+        <delete dir="classes"/>
+    </target>
+    <target depends="cleandgCommon" name="cleandgCommonall"/>
+    <target depends="build-subprojects,build-project" name="builddgCommon"/>
+    <target name="build-subprojects"/>
+    <target depends="initdgCommon" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="classes" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="dgCommon.classpath"/>
+        </javac>
+    	<jar jarfile = "dgcommon.jar" basedir ="classes" >
+    						<manifest>
+    							<section name="DgSecure">
+    							  <attribute name="Package-Title" value="dgcommon"/>
+    							  <attribute name="Package-Version" value="${dgCommon_version_value}"/>
+    							  <attribute name="Package-Vendor" value="Dataguise"/>
+    							  <attribute name="Package-Build-Time" value="${current.time}"/> 
+    							  <attribute name="Patch-Version" value=""/>
+    							  <attribute name="Revision" value="${repository_revision}"/>						  
+    							</section>
+    						</manifest>					
+    					</jar>
+
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects">
+        <ant antfile="build.xml" dir="${DgIngestCommon.location}" inheritAll="false" target="cleandgCommon"/>
+        <ant antfile="build.xml" dir="${DgIngestCommon.location}" inheritAll="false" target="builddgCommon"/>
+        <ant antfile="build.xml" dir="${HDFSAgent.location}" inheritAll="false" target="cleandgCommon"/>
+        <ant antfile="build.xml" dir="${HDFSAgent.location}" inheritAll="false" target="builddgCommon"/>
+        <ant antfile="build.xml" dir="${HiveAgent.location}" inheritAll="false" target="cleandgCommon"/>
+        <ant antfile="build.xml" dir="${HiveAgent.location}" inheritAll="false" target="builddgCommon"/>
+        <ant antfile="build.xml" dir="${dgController.location}" inheritAll="false" target="cleandgCommon"/>
+        <ant antfile="build.xml" dir="${dgController.location}" inheritAll="false" target="builddgCommon"/>
+        <ant antfile="build.xml" dir="${dgFilesAgent.location}" inheritAll="false" target="cleandgCommon"/>
+        <ant antfile="build.xml" dir="${dgFilesAgent.location}" inheritAll="false" target="builddgCommon"/>
+        <ant antfile="build.xml" dir="${dgUI.location}" inheritAll="false" target="cleandgCommon"/>
+        <ant antfile="build.xml" dir="${dgUI.location}" inheritAll="false" target="builddgCommon"/>
+    </target>
+  
+</project>

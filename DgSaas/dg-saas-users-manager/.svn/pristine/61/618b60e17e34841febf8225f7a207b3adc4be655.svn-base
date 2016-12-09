@@ -1,0 +1,8 @@
+smtp.host=pod51009.outlook.com
+smtp.port=587
+smtp.conn.type=TLS
+smtp.username=
+smtp.password=
+smtp.sender=
+
+mail.subject=DgSecure instance ready for use

@@ -1,0 +1,62 @@
+
+package com.dataguise.webservices.beans.masker;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
+
+import com.dataguise.webservices.beans.DgConnection;
+
+
+/**
+ * <p>Java class for truncateSchema complex type.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.
+ * 
+ * <pre>
+ * &lt;complexType name="truncateSchema">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="arg0" type="{http://masker.webservices.dataguise.com/}dgConnection" minOccurs="0"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
+ * </pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "truncateSchema", propOrder = {
+    "arg0"
+})
+public class TruncateSchema {
+
+    protected DgConnection arg0;
+
+    /**
+     * Gets the value of the arg0 property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link DgConnection }
+     *     
+     */
+    public DgConnection getArg0() {
+        return arg0;
+    }
+
+    /**
+     * Sets the value of the arg0 property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link DgConnection }
+     *     
+     */
+    public void setArg0(DgConnection value) {
+        this.arg0 = value;
+    }
+
+}
